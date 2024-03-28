@@ -10,6 +10,7 @@ import { findIndex } from 'rxjs';
 })
 export class PortfolioComponent implements OnInit {
   editedProject: any;
+  sharedProjectData: any;
 
   ngOnInit() {}
 

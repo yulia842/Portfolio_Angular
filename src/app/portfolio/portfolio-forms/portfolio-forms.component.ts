@@ -16,7 +16,8 @@ import { Project, Skill } from '../portfolio-models';
   styleUrls: ['./portfolio-forms.component.css'],
 })
 export class PortfolioFormsComponent implements OnInit {
-  @Input() project?: Project;
+  @Input() project: any;
+
   skills: Skill[] = [];
 
   constructor(private apiServicePortfolio: ApiServicePortfolio) {}
@@ -25,6 +26,10 @@ export class PortfolioFormsComponent implements OnInit {
     this.apiServicePortfolio.get_skills().subscribe((data: Skill[]) => {
       this.skills = data;
     });
+  }
+
+  ngOnChanges() {
+    console.log(this.project); // This will log 'Data from Sibling 1' when updated from sibling1
   }
 
   closeModal() {

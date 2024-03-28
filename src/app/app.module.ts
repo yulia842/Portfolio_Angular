@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 
@@ -47,6 +48,7 @@ const routes: Routes = [
     AuthModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     RouterModule.forRoot(routes),
     ModalModule.forRoot(),
   ],

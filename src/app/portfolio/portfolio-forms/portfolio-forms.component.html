@@ -1,4 +1,4 @@
-<!-- PROJECT FORM -->
+<!-- 
 <div
   class="modal"
   [style.display]="project ? 'block' : 'none'"
@@ -6,7 +6,7 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <!-- Modal Header -->
+
       <div class="modal-header">
         <h1 *ngIf="!project">Add Project</h1>
         <h1 *ngIf="project">Edit Project</h1>
@@ -17,7 +17,7 @@
           (click)="closeModal()"
         ></button>
       </div>
-      <!-- Modal body -->
+
       <form>
         <div class="form-group" ngFor="let project of projects">
           <label for="formGroupExampleInput">Title Input</label>
@@ -49,7 +49,7 @@
           skill.name
         }}</label>
       </div>
-      <!-- Modal footer -->
+
       <div class="modal-footer">
         <button
           type="button"
@@ -62,4 +62,45 @@
       </div>
     </div>
   </div>
+</div> -->
+<!-- <h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
 </div>
+<div mat-dialog-actions>
+  <button mat-button>No Thanks</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</div>
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h1 *ngIf="!project">Add Project</h1>
+      <h1 *ngIf="project">Edit Project</h1>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        (click)="closeModal()"
+      ></button>
+    </div> -->
+
+<form>
+  <label for="formGroupExampleInput">Title Input</label>
+  <input
+    type="text"
+    class="form-control"
+    id="formGroupExampleInput"
+    placeholder="{{ project ? project.name : 'Title Input' }}"
+  />
+  <label for="formGroupExampleInput">{{
+    project ? project.description : "Description input"
+  }}</label>
+  <input
+    *ngIf="project ? project.description : 'Description inputs'"
+    type="text"
+    class="form-control"
+    id="formGroupExampleInput"
+    placeholder="{{ project ? project.description : 'Description inputs' }}"
+  />
+</form>

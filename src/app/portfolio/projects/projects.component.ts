@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ApiServicePortfolio } from '../api-portfolio.service';
 
@@ -16,9 +17,11 @@ export class ProjectsComponent implements OnInit {
   projects: Array<Project> = [];
   skills: Array<Skill> = [];
 
+  @Output() chosenProject = new EventEmitter<Project>();
+
   constructor(
     private apiService: ApiServicePortfolio,
-    private bsModalService: BsModalService
+    public dialog: MatDialog
   ) {}
   ngOnInit() {
     this.apiService.get_projects().subscribe(
@@ -63,4 +66,17 @@ export class ProjectsComponent implements OnInit {
       })
       .join(', ');
   }
+
+  openModalForms(project: Project) {
+    console.log(project);
+    const dialogRef = this.dialog.open(PortfolioFormsComponent, {
+      data: { project: this.chosenProject.emit(project) },
+      height: '400px',
+      width: '600px',
+    });
+  }
+  // dialogRef.afterClosed().subscribe(result => {
+  //   console.log('The dialog was closed');
+  //   this.chosenProject.emit(project) = result;
+  // });
 }

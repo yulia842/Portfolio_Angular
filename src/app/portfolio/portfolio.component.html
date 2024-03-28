@@ -1,5 +1,5 @@
-<app-portfolio-forms></app-portfolio-forms>
-<app-projects></app-projects>
+<app-portfolio-forms [project]="sharedProjectData"></app-portfolio-forms>
+<app-projects (openModalForms)="sharedProjectData = $event"></app-projects>
 <app-educations></app-educations>
 <app-skills></app-skills>
 
